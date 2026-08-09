@@ -36,6 +36,16 @@ const itemVariants = {
 };
 
 const TripPlanner = () => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   const [activeTab, setActiveTab] = useState('itinerary'); 
   const [activeDay, setActiveDay] = useState(1);
   const [isBooked, setIsBooked] = useState(false);
