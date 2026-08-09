@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -7,6 +7,7 @@ import { Map, Calendar, Users, MapPin, Clock, CheckCircle, Wallet, ArrowRight, P
 import { useMutation } from '@tanstack/react-query';
 import { generateTripItinerary } from '../services/api';
 import { MEDIA } from '../utils/constants';
+import toast from 'react-hot-toast';
 
 // --- ZOD VALIDATION SCHEMA FOR BOOKING ---
 const bookingSchema = z.object({
@@ -99,7 +100,11 @@ const TripPlanner = () => {
           </h1>
         </div>
         <button 
-          onClick={() => setIsWishlisted(!isWishlisted)}
+          onClick={() => {
+            setIsWishlisted(!isWishlisted);
+            if (!isWishlisted) toast.success('Added to Wishlist!');
+            else toast('Removed from Wishlist', { icon: '💔' });
+          }}
           className={`mt-4 md:mt-0 flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-xs uppercase tracking-widest border transition-all ${isWishlisted ? 'bg-rose-500/20 text-rose-400 border-rose-500/50 shadow-[0_0_15px_rgba(244,63,94,0.3)]' : 'bg-[#18230F]/40 text-slate-300 border-white/20 hover:bg-[#18230F]/60'}`}
         >
           <Heart className={`h-4 w-4 ${isWishlisted ? 'fill-rose-400' : ''}`} />
@@ -285,7 +290,10 @@ const TripPlanner = () => {
                     placeholder="Share your experience with this itinerary..." 
                     className="w-full bg-[#18230F]/60 border border-white/10 text-white placeholder:text-slate-500 rounded-xl p-4 focus:outline-none focus:ring-2 focus:ring-[#1F7D53] transition-all min-h-[100px] mb-4"
                   ></textarea>
-                  <button className="bg-gradient-to-r from-[#1F7D53] to-[#255F38] text-white font-bold py-3 px-6 rounded-xl text-xs uppercase tracking-widest shadow-[0_0_15px_rgba(31,125,83,0.3)] hover:shadow-[0_0_25px_rgba(31,125,83,0.5)] border border-[#4ade80]/30 transition-all">
+                  <button 
+                    onClick={() => toast.success('Review submitted successfully!')}
+                    className="bg-gradient-to-r from-[#1F7D53] to-[#255F38] text-white font-bold py-3 px-6 rounded-xl text-xs uppercase tracking-widest shadow-[0_0_15px_rgba(31,125,83,0.3)] hover:shadow-[0_0_25px_rgba(31,125,83,0.5)] border border-[#4ade80]/30 transition-all"
+                  >
                     Submit Review
                   </button>
                 </div>
