@@ -3,6 +3,7 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { MapPin, Plane, CreditCard, ChevronRight, Search, Star, Navigation, Globe, Building, Wallet, Calendar as CalendarIcon, ArrowRight } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { MEDIA } from '../utils/constants';
+import { Link } from 'react-router-dom';
 
 // --- ADVANCED 3D TILT GLASS CARD COMPONENT ---
 const GlassCard = ({ children, className }) => {
@@ -306,14 +307,17 @@ const Dashboard = () => {
               </motion.div>
             ))}
             
+            <Link to="/planner" className="block w-full mt-2">
             <motion.button 
+              tabIndex={-1}
               variants={scaleInVariants}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full bg-gradient-to-r from-[#1F7D53] to-[#255F38] text-white font-bold py-4 rounded-xl text-xs tracking-widest uppercase shadow-[0_0_20px_rgba(31,125,83,0.3)] hover:shadow-[0_0_30px_rgba(31,125,83,0.5)] transition-all mt-2 border border-[#4ade80]/30"
+              className="w-full bg-gradient-to-r from-[#1F7D53] to-[#255F38] text-white font-bold py-4 rounded-xl text-xs tracking-widest uppercase shadow-[0_0_20px_rgba(31,125,83,0.3)] hover:shadow-[0_0_30px_rgba(31,125,83,0.5)] transition-all border border-[#4ade80]/30 cursor-pointer"
             >
               Launch Trip Planner
             </motion.button>
+          </Link>
           </div>
         </div>
       </motion.div>

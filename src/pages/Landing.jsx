@@ -254,28 +254,28 @@ const Landing = () => {
         </section>
 
         {/* --- FOOTER --- */}
-        <footer className="border-t border-white/10 bg-[#18230F]/30 backdrop-blur-2xl pt-12 pb-8 px-4 sm:px-6 mt-10">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10">
-            <div className="col-span-1 sm:col-span-2">
-              <div className="flex items-center gap-2 sm:gap-2.5 mb-4">
+        <footer className="border-t border-white/10 bg-[#18230F]/30 backdrop-blur-2xl pt-12 pb-8 px-4 sm:px-6 mt-10 text-center md:text-left">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+            <div className="col-span-1 md:col-span-2 flex flex-col items-center md:items-start">
+              <div className="flex items-center justify-center md:justify-start gap-2 sm:gap-2.5 mb-4">
                 <Compass className="text-[#4ade80] h-5 w-5 sm:h-6 sm:w-6 drop-shadow-md" />
                 <span className="text-xl sm:text-2xl font-bold tracking-widest uppercase text-white drop-shadow-md">Lumina</span>
               </div>
-              <p className="text-slate-300 text-xs sm:text-sm max-w-sm leading-relaxed drop-shadow-sm">
+              <p className="text-slate-300 text-xs sm:text-sm max-w-sm leading-relaxed drop-shadow-sm mx-auto md:mx-0">
                 Elevating the standard of luxury travel through artificial intelligence and impeccable design.
               </p>
             </div>
-            <div>
+            <div className="flex flex-col items-center md:items-start">
               <h4 className="text-white font-bold mb-3 sm:mb-4 text-sm drop-shadow-md">Headquarters</h4>
-              <ul className="space-y-3 text-slate-300 text-xs sm:text-sm">
-                <li className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#4ade80]" /> Koramangala, Bengaluru</li>
-                <li className="flex items-center gap-2"><Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#4ade80]" /> concierge@lumina.travel</li>
-                <li className="flex items-center gap-2"><Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#4ade80]" /> +91 80 4111 2222</li>
+              <ul className="space-y-3 text-slate-300 text-xs sm:text-sm inline-block text-left">
+                <li className="flex items-center justify-start gap-2"><MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#4ade80] shrink-0" /> Koramangala, Bengaluru</li>
+                <li className="flex items-center justify-start gap-2"><Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#4ade80] shrink-0" /> concierge@lumina.travel</li>
+                <li className="flex items-center justify-start gap-2"><Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#4ade80] shrink-0" /> +91 80 4111 2222</li>
               </ul>
             </div>
-            <div>
+            <div className="flex flex-col items-center md:items-start">
               <h4 className="text-white font-bold mb-3 sm:mb-4 text-sm drop-shadow-md">Legal</h4>
-              <ul className="space-y-3 text-slate-300 text-xs sm:text-sm">
+              <ul className="space-y-3 text-slate-300 text-xs sm:text-sm inline-block text-center md:text-left">
                 <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
               </ul>
